@@ -1,10 +1,9 @@
-// app/page.tsx
-"use client"
+'use client'
 
-import { useEffect, useState } from "react"
-import { useAccount, useDisconnect } from "wagmi"
-import { useWeb3Modal } from "@web3modal/wagmi/react"
-import WalletChecker from "@/components/wallet-checker"
+import { useEffect, useState } from 'react'
+import { useAccount, useDisconnect } from 'wagmi'
+import { useWeb3Modal } from '@web3modal/wagmi/react'
+import WalletChecker from '@/components/wallet-checker'
 
 export default function Home() {
   const { address, isConnected } = useAccount()

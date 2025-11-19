@@ -1,15 +1,13 @@
-// app/providers.tsx
 "use client"
 
-import type React from "react"
+import type { ReactNode } from "react"
 import { useState } from "react"
 import { WagmiProvider } from "wagmi"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { Toaster } from "react-hot-toast"
-
 import { config } from "@/lib/wagmi-config"
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient())
 
   return (
