@@ -27,10 +27,12 @@ const wagmiConfig = createConfig({
   },
 })
 
-createWeb3Modal({
+createAppKit({
   wagmiConfig,
   projectId,
-  chains: [mainnet, sepolia],
+  networks: [mainnet, sepolia],
+  // 必要なら:
+  // defaultNetwork: mainnet,
 })
 
 export function Providers({ children }: { children: ReactNode }) {
