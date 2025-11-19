@@ -1,10 +1,10 @@
+// app/providers.tsx
 "use client"
 
 import type React from "react"
 import { useState } from "react"
-
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { WagmiProvider } from "wagmi"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { Toaster } from "react-hot-toast"
 
 import { config } from "@/lib/wagmi-config"
