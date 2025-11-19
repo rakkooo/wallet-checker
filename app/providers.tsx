@@ -1,46 +1,23 @@
-'use client'
+"use client"
 
-import { ReactNode } from 'react'
-import { createWeb3Modal } from '@web3modal/wagmi/react'
-import { WagmiProvider } from 'wagmi'
-import { mainnet, sepolia } from 'wagmi/chains'
-import { http } from 'viem'
-import { createConfig } from 'wagmi'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import type React from "react"
 
-const queryClient = new QueryClient()
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { WagmiProvider } from "wagmi"
+import { useState } from "react"
+import { Toaster } from "react-hot-toast"
 
-const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID || '537ec6bc395c2ed56829831de13c3cd7'
+import { config } from "@/lib/wagmi-config"
 
-const metadata = {
-  name: 'FCFS Wallet Checker',
-  description: 'Check if your wallet is eligible for FCFS',
-  url: typeof window !== 'undefined' ? window.location.origin : 'https://fcfs-checker.vercel.app',
-  icons: ['https://avatars.githubusercontent.com/u/37784886']
-}
+export function Providers({ children }: { children: React.ReactNode }) {
+  const [queryClient] = useState(() => new QueryClient())
 
-const wagmiConfig = createConfig({
-  chains: [mainnet, sepolia],
-  transports: {
-    [mainnet.id]: http(),
-    [sepolia.id]: http(),
-  },
-})
-
-createAppKit({
-  wagmiConfig,
-  projectId,
-  networks: [mainnet, sepolia],
-  // 必要なら:
-  // defaultNetwork: mainnet,
-})
-
-export function Providers({ children }: { children: ReactNode }) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <WagmiProvider config={wagmiConfig}>
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
         {children}
-      </WagmiProvider>
-    </QueryClientProvider>
+        <Toaster position="top-center" />
+      </QueryClientProvider>
+    </WagmiProvider>
   )
 }
