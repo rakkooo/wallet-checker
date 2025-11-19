@@ -1,18 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* app/globals.css */
+
+@import "tailwindcss";
 
 html,
 body {
   height: 100%;
 }
 
+/* 背景と文字色のデフォルト */
 body {
-  /* 背景と文字色のデフォルト */
   @apply bg-slate-950 text-slate-50;
 }
 
-/* ルートの main が全画面センターになるように（page.tsx のクラスとも整合） */
+/* ルートの main が全画面センターになるように */
 main {
   min-height: 100vh;
 }
