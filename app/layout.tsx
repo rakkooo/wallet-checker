@@ -9,7 +9,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'FCFS Wallet Checker',
-  description: 'FCFSウォレットチェッカー - あなたのウォレットがEligibleかチェック',
+  description: 'FCFS Wallet Checker',
   generator: 'v0.app',
   icons: {
     icon: [
